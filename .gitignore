@@ -1,0 +1,7 @@
+*~
+node_modules
+npm-debug.log
+bower_components
+src/js/browser-bundle.js
+src/js/browser-bundle.js.map
+.idea
