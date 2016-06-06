@@ -13,6 +13,7 @@ Simple boilerplate/template for building [React](https://facebook.github.io/reac
   * Clone the repo: `git clone https://github.com/mjgs/react-webpack-project-template my-new-project`
   * Install the dependencies: `cd my-new-project && npm install`
   * Probably a good idea to delete the .git folder, then create your own repo: `git init` ... add all files to the repo
+  * Update template specific things in package.json and webpack configs
   * Start webpack dev server: `npm run dev`
   * Add your code to `./src/main.js` and open `http://localhost:3000`
   * When you are ready to deploy: `npm run build`, deploy the public folder to your web server  
