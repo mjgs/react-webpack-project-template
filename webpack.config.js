@@ -4,9 +4,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: './public/js',
-    publicPath: '/js',
-    filename: 'bundle.js'
+    path: './public',
+    publicPath: '',
+    filename: '/js/bundle.js'
   },
   devtool: 'source-map',
   devServer: {
@@ -24,7 +24,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'REACT WEBPACK PROJECT TEMPLATE',
       template: './src/index.ejs',
-      filename: '../index.html',
+      filename: 'index.html',
       inject: 'body'
     })
   ]
