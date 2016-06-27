@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --config webpack.config.prod.js -p",
-    "test": "karma start"
+    "test": "karma start",
+    "watch:test": "npm test -- --auto-watch --no-single-run"
   },
   "author": "",
   "private": false,
