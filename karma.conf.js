@@ -16,7 +16,14 @@ module.exports = function setKarmaConfig(config) {
     },
     webpack: webpackConfig,
     webpackMiddleware: { noInfo: true },
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+    coverageReporter: {
+      reporters: [
+        {type: 'lcov', dir: 'coverage/', subdir: '.'},
+        {type: 'json', dir: 'coverage/', subdir: '.'},
+        {type: 'text-summary'}
+      ]
+    },
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
