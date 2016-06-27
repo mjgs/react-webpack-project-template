@@ -8,6 +8,7 @@ Simple boilerplate/template for building [React](https://facebook.github.io/reac
   * Generates sourceMaps
   * Compiles SASS to CSS
   * Mocha/Karma/Chai test environment
+  * Code coverage
 
 ## How to use this
 
