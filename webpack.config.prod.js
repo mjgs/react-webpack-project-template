@@ -2,7 +2,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/js/app.js',
   output: {
     path: './public',
     publicPath: '',
@@ -16,7 +16,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/main.css', {
+    new ExtractTextPlugin('styles/main.css', {
       allChunks: true
     }),
     new HtmlWebpackPlugin({
