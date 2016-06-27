@@ -1,17 +1,20 @@
 // Karma configuration
 // Generated on Mon Jun 27 2016 17:31:41 GMT+0700 (ICT)
 
-// const webpackEnv = { test: true };
-// const webpackConfig = require('./webpack.config')(webpackEnv);
-// const fileGlob = 'src/js/**/*.test.js';
+const webpackEnv = { test: true };
+const webpackConfig = require('./webpack.config')(webpackEnv);
+const fileGlob = 'src/js/**/*.test.js';
 
 module.exports = function setKarmaConfig(config) {
   config.set({
     basePath: '',
     frameworks: ['mocha', 'chai'],
-    files: ['src/js/**/*.test.js'],
+    files: [fileGlob],
     exclude: [],
-    preprocessors: {},
+    preprocessors: {
+      [fileGlob]: ['webpack']
+    },
+    webpack: webpackConfig,
     reporters: ['progress'],
     port: 9876,
     colors: true,
