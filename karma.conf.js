@@ -15,6 +15,7 @@ module.exports = function setKarmaConfig(config) {
       [fileGlob]: ['webpack']
     },
     webpack: webpackConfig,
+    webpackMiddleware: { noInfo: true },
     reporters: ['progress'],
     port: 9876,
     colors: true,
