@@ -8,7 +8,7 @@
 module.exports = function setKarmaConfig(config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha'],
+    frameworks: ['mocha', 'chai'],
     files: ['src/js/**/*.test.js'],
     exclude: [],
     preprocessors: {},

@@ -1,6 +1,6 @@
 describe('test', () => {
   it('works', () => {
-    // test stuff
+    expect(true).to.be.true;
   });
   it('works', () => {
     // test stuff
