@@ -1,14 +1,15 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  entry: './src/js/app.js',
+  entry: './js/app.js',
   output: {
-    path: './public',
-    publicPath: '',
-    filename: '/js/bundle.js'
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'public'),
+    pathinfo: true
   },
-  devtool: 'source-map',
+  context: path.resolve(__dirname, 'src'),
   module: {
     loaders: [
       {test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel', query: { presets: ['es2015', 'react']}},
@@ -21,7 +22,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: 'REACT WEBPACK PROJECT TEMPLATE',
-      template: './src/index.ejs',
+      template: './index.ejs',
       filename: 'index.html',
       inject: 'body'
     })

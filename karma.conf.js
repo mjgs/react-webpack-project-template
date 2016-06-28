@@ -1,10 +1,10 @@
 // Karma configuration
 // Generated on Mon Jun 27 2016 17:31:41 GMT+0700 (ICT)
 
-const webpackEnv = { test: true };
-const webpackConfig = require('./webpack.config')(webpackEnv);
-const fileGlob = 'src/js/**/*.test.js';
 process.env.BABEL_ENV = "test";
+
+const webpackConfig = require('./webpack.config');
+const fileGlob = 'src/js/**/*.test.js';
 
 module.exports = function setKarmaConfig(config) {
   config.set({

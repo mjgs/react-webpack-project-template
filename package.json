@@ -4,9 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server",
+    "start": "webpack-dev-server --config webpack.config.js --content-base public",
     "build": "webpack --config webpack.config.prod.js -p",
     "test": "karma start",
+    "validate": "npm-run-all --parallel validate-webpack:* test",
+    "validate-webpack:dev": "webpack-validator webpack.config.js",
+    "validate-webpack:prod": "webpack-validator webpack.config.prod.js",
     "watch:test": "npm test -- --auto-watch --no-single-run"
   },
   "author": "",
@@ -34,9 +37,11 @@
     "karma-webpack": "^1.7.0",
     "mocha": "^2.5.3",
     "node-sass": "^3.7.0",
+    "npm-run-all": "^2.2.2",
     "sass-loader": "^3.2.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.12.1"
+    "webpack-dev-server": "^1.12.1",
+    "webpack-validator": "^2.2.0"
   }
 }
