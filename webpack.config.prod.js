@@ -12,8 +12,9 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel', query: { presets: ['es2015', 'react']}},
-      {test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap')}
+      {test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
+      {test: /\.s?css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap')},
+      {test: /\.json$/, loader: 'json'}
     ]
   },
   plugins: [

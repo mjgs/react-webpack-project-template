@@ -1,6 +1,19 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Fluxxor from 'Fluxxor';
+import App from './components/App.jsx';
+import Stores from './stores/Stores';
+import Actions from './actions/Actions';
 
-require('../styles/main.scss');
+const flux = new Fluxxor.Flux(Stores, Actions);
 
-ReactDOM.render(<h1>Hello React!</h1>, document.getElementById('root'));
+flux.actions.product.getAllProducts();
+
+flux.on("dispatch", function(type, payload) {
+  console.log("Dispatched", type, payload);
+});
+
+ReactDOM.render(
+    React.createElement(App, { flux }),
+    document.getElementById('flux-app')
+);

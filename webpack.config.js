@@ -12,8 +12,9 @@ module.exports = {
   devtool: 'source-map',
   module: {
     loaders: [
-      {test: /\.js$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
-      {test: /\.s?css$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap'], include: path.join(__dirname, 'src')}
+      {test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
+      {test: /\.s?css$/, loaders: ['style', 'css?sourceMap', 'sass?sourceMap'], include: path.join(__dirname, 'src')},
+      {test: /\.json$/, loader: 'json'}
     ]
   },
   plugins: [
