@@ -8,8 +8,11 @@ Simple boilerplate/template for building [React](https://facebook.github.io/reac
   * Uses webpack-dev-server for development
   * Generates sourceMaps
   * Compiles SASS to CSS
-  * Mocha/Karma/Chai test environment with code coverage
+  * Mocha/Karma/Chai test environment with instrumented code for coverage
   * Several npm scripts for builds
+  * Webpack validator
+  * Linting with eslint and [eslint-config-kentcdodds](https://github.com/kentcdodds/eslint-config-kentcdodds)
+  * Opt-in git commit hooks
 
 ## How to use this
 
