@@ -1,34 +1,35 @@
+/*eslint no-shadow: ["error", { "allow": ["products"] }]*/
 import ProductConstants from '../constants/ProductConstants';
 import CartConstants from '../constants/CartConstants';
-import Fluxxor from 'Fluxxor';
+import Fluxxor from 'fluxxor';
 
-let products = [];
-let state = { products };
+const products = [];
+const state = { products };
 const ProductStore = Fluxxor.createStore({
-    initialize() {
-        this.bindActions(
-            CartConstants.ADD_TO_CART, this.onAddToCart,
-            ProductConstants.RECEIVE_PRODUCTS, this.onReceiveProducts
-        );
-    },
+  initialize() {
+    this.bindActions(
+      CartConstants.ADD_TO_CART, this.onAddToCart,
+      ProductConstants.RECEIVE_PRODUCTS, this.onReceiveProducts
+    );
+  },
 
-    decreaseInventory(product) {
-        product.inventory = product.inventory > 0 ? product.inventory - 1 : 0;
-    },
+  decreaseInventory(product) {
+    product.inventory = product.inventory > 0 ? product.inventory - 1 : 0;
+  },
 
-    onAddToCart(product) {
-        this.decreaseInventory(product);
-        this.emit('change');
-    },
+  onAddToCart(product) {
+    this.decreaseInventory(product);
+    this.emit('change');
+  },
 
-    onReceiveProducts(products) {
-        state.products = products;
-        this.emit('change');
-    },
+  onReceiveProducts(products) {
+    state.products = products;
+    this.emit('change');
+  },
 
-    getState() {
-        return state;
-    }
+  getState() {
+    return state;
+  }
 });
 
 export default ProductStore;

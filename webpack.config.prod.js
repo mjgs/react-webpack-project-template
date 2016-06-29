@@ -13,9 +13,9 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   module: {
     loaders: [
-      {test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel'},
-      {test: /\.s?css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap')},
-      {test: /\.json$/, loader: 'json'}
+      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel' },
+      { test: /\.s?css$/, loader: ExtractTextPlugin.extract('style', 'css?sourceMap!sass?sourceMap') },
+      { test: /\.json$/, loader: 'json' }
     ]
   },
   plugins: [
@@ -30,8 +30,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-    }),
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
+    })
   ]
 };
