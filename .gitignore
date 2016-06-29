@@ -6,3 +6,4 @@ coverage
 public
 .idea
 .opt-in
+server.bundle.js
