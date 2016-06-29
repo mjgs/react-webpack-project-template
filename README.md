@@ -6,6 +6,7 @@ Simple boilerplate/template for building [React](https://facebook.github.io/reac
   * Separate webpack config files for development and production
   * Generates index.html
   * Uses webpack-dev-server for development
+  * Simple production server
   * Generates sourceMaps
   * Compiles SASS to CSS
   * Mocha/Karma/Chai test environment with instrumented code for coverage
@@ -31,3 +32,4 @@ Simple boilerplate/template for building [React](https://facebook.github.io/reac
   * Rajaraodv - [Webpack - The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9#.wh5l2m7fp)
   * Adrian Hall - [Adding SASS Support to Webpack](https://shellmonger.com/2016/01/19/adding-sass-support-to-webpack/)
   * Kent C Dodds - [Using Webpack for Production JavaScript Applications](https://egghead.io/courses/using-webpack-for-production-javascript-applications)
+  * React Router [Tutorial](https://github.com/reactjs/react-router-tutorial)
