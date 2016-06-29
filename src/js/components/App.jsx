@@ -3,23 +3,23 @@ import CartContainer from './CartContainer.jsx';
 import ProductsContainer from './ProductsContainer.jsx';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        const flux = this.props.flux;
-        return (
-            <div>
-                <ProductsContainer flux={flux} />
-                <CartContainer flux={flux} />
-            </div>
-        );
-    }
+  render() {
+    const flux = this.props.flux;
+    return (
+      <div>
+        <ProductsContainer flux={flux} />
+        <CartContainer flux={flux} />
+      </div>
+    );
+  }
 }
 
 App.propTypes = {
-    flux: PropTypes.object.isRequired
+  flux: PropTypes.object.isRequired
 };
 
 export default App;

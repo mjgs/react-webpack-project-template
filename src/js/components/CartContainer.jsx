@@ -1,42 +1,44 @@
+/* eslint-disable import/default */
 import React, { PropTypes } from 'react';
 import Cart from '../../../common/components/Cart.jsx';
 import connect from '../utils/Connect';
 
 class CartContainer extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.onCheckoutClicked = this.onCheckoutClicked.bind(this);
-    }
+    this.onCheckoutClicked = this.onCheckoutClicked.bind(this);
+  }
 
-    onCheckoutClicked() {
-        if (!this.props.products.length) {
-            return;
-        }
-        this.props.flux.actions.cart.cartCheckout(this.props.products);
+  onCheckoutClicked() {
+    if (!this.props.products.length) {
+      return;
     }
+    this.props.flux.actions.cart.cartCheckout(this.props.products);
+  }
 
-    render() {
-        return (
-            <Cart
-                products={this.props.products}
-                total={this.props.total}
-                onCheckoutClicked={this.onCheckoutClicked}
-            />
-        );
-    }
+  render() {
+    return (
+      <Cart
+        products={this.props.products}
+        total={this.props.total}
+        onCheckoutClicked={this.onCheckoutClicked}
+      />
+    );
+  }
 }
 
 CartContainer.propTypes = {
-    flux: PropTypes.object.isRequired,
-    products: PropTypes.array,
-    total: PropTypes.string
+  flux: PropTypes.object.isRequired,
+  products: PropTypes.array,
+  total: PropTypes.string
 };
 
+/*eslint no-unused-vars: ["error", { "args": "none" }]*/
 export default connect(CartContainer, ['cartStore'], (flux, props, state) => {
-    const cartStoreState = flux.store('cartStore').getState();
-    return {
-        products: [...cartStoreState.products.values()],
-        total: cartStoreState.total
-    };
+  const cartStoreState = flux.store('cartStore').getState();
+  return {
+    products: [...cartStoreState.products.values()],
+    total: cartStoreState.total
+  };
 });
