@@ -34,6 +34,11 @@ module.exports = {
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        screw_ie8: true, // eslint-disable-line
+        warnings: false
+      }
+    })
   ]
 };
