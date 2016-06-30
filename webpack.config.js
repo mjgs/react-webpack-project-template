@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './js/app.js',
@@ -23,6 +24,7 @@ module.exports = {
       template: './index.ejs',
       filename: 'index.html',
       inject: 'body'
-    })
+    }),
+    new webpack.optimize.DedupePlugin()
   ]
 };
