@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require('webpack');
 
@@ -24,12 +23,6 @@ module.exports = {
   plugins: [
     new ExtractTextPlugin('styles/main.css', {
       allChunks: true
-    }),
-    new HtmlWebpackPlugin({
-      title: 'REACT WEBPACK PROJECT TEMPLATE',
-      template: './index.ejs',
-      filename: 'index.html',
-      inject: 'body'
     }),
     new webpack.DefinePlugin({
       'process.env': {

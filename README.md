@@ -15,6 +15,7 @@ Simple boilerplate/template for building [React](https://facebook.github.io/reac
   * Linting with eslint and [eslint-config-kentcdodds](https://github.com/kentcdodds/eslint-config-kentcdodds)
   * Opt-in git commit hooks
   * Selected vendor libs bundled separately for production builds
+  * Production build is an isomorphic app, with initial page rendered on the server
 
 ## How to use this
 

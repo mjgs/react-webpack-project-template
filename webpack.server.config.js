@@ -2,7 +2,7 @@ var fs = require('fs');
 var path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'server.js'),
+  entry: './src/js/server.js',
   output: {
     filename: 'server.bundle.js'
   },
@@ -20,7 +20,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react' }
+      { test: /\.jsx?$/, exclude: /(node_modules|bower_components)/, loader: 'babel' }
     ]
   }
 };

@@ -12,7 +12,8 @@
     "if-env": "^1.0.0",
     "path": "^0.12.7",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0"
+    "react-dom": "^15.1.0",
+    "react-router": "^2.5.1"
   },
   "devDependencies": {
     "babel-core": "^6.10.4",
@@ -74,8 +75,9 @@
     "copy-favicon": "cpy src/favicon.ico public",
     "copy-images": "cpy src/img/* public/img",
     "copy-files": "npm run copy-css && npm run copy-favicon && npm run copy-images",
-    "clean-and-copy": "npm run clean-public && npm run create-dirs && npm run copy-files",
+    "clean-and-copy": "npm run clean-public && npm run clean-server && npm run create-dirs && npm run copy-files",
     "clean-public": "rimraf public",
+    "clean-server": "rimraf server.bundle.js",
     "create-dirs": "mkdir -p public/{img,js,styles}",
     "test": "karma start",
     "lint": "npm run lint:src && npm run lint:.",
