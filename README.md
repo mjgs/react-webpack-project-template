@@ -1,6 +1,6 @@
 # react-webpack-project-template
 
-Simple boilerplate/template for building [React](https://facebook.github.io/react/) apps with [Sass](http://sass-lang.com/).
+Boilerplate/template for building [React](https://facebook.github.io/react/) web applications.
   
   * React/Flux demo [app](https://github.com/mjgs/fluxxor-flux-comparison-app) 
   * Separate webpack config files for development and production
@@ -8,7 +8,7 @@ Simple boilerplate/template for building [React](https://facebook.github.io/reac
   * Uses webpack-dev-server for development
   * Simple production server
   * Generates sourceMaps
-  * Compiles SASS to CSS
+  * Compiles [Sass](http://sass-lang.com/) to CSS
   * Mocha/Karma/Chai test environment with instrumented code for coverage
   * Several npm scripts for builds
   * Webpack validator
