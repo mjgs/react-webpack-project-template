@@ -9,18 +9,6 @@ import routes from './routes';
 import Stores from './stores/Stores';
 import Actions from './actions/Actions';
 
-// server.js
-var express = require('express');
-var path = require('path');
-var compression = require('compression');
-
-var app = express();
-
-app.use(compression());
-
-// Serve our static stuff like index.css
-app.use(express.static(path.join(__dirname, '..', '..', 'public')));
-
 // Create flux instance
 const flux = new Fluxxor.Flux(Stores, Actions);
 flux.actions.product.getAllProducts();
@@ -29,6 +17,15 @@ flux.on('dispatch', function(type, payload) {
   console.log('Dispatched', type, payload);
 });
 
+// Setup
+var express = require('express');
+var app = express();
+var path = require('path');
+var compression = require('compression');
+
+// Configure
+app.use(compression());
+app.use(express.static(path.join(__dirname, '..', '..', 'public')));
 app.get('*', (req, res) => {
   match({ routes, location: req.url }, (err, redirect, props) => {
     if (err) {
@@ -73,7 +70,8 @@ function renderPage(appHtml) {
   return pageHtml;
 }
 
-var PORT = process.env.PORT || 8080;
+// Start
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
   /*eslint no-console: ["error", { allow: ["log"] }] */
   console.log('Production Express server running at localhost:' + PORT);
