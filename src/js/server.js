@@ -18,10 +18,21 @@ flux.on('dispatch', function(type, payload) {
 });
 
 // Setup
-var express = require('express');
-var app = express();
-var path = require('path');
-var compression = require('compression');
+const fs = require('fs');
+const config = require('./config');
+const express = require('express');
+const app = express();
+const path = require('path');
+const ejs = require('ejs');
+const compression = require('compression');
+const compiledTemplate = ejs.compile(fs.readFileSync(path.join(__dirname, '..', 'index.ejs'), 'utf8'));
+const renderOptions = {
+  htmlWebpackPlugin: {
+    options: {
+      title: config.title
+    }
+  }
+};
 
 // Configure
 app.use(compression());
@@ -38,7 +49,7 @@ app.get('*', (req, res) => {
           {...props}
         />
       );
-      res.send(renderPage(appHtml));
+      res.send(renderPage(appHtml, renderOptions));
     } else {
       res.status(404).send('Not Found');
     }
@@ -49,25 +60,10 @@ function createFluxComponent(Component, props) {
   return <Component {...props} flux={flux} />;
 }
 
-function renderPage(appHtml) {
-  const pageHtml = `
-    <!doctype html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <title>REACT-WEBPACK-PROJECT-TEMPLATE</title>
-        <link rel="shortcut icon" type="image/png" href="img/react.png">
-        <link href="styles/uikit.almost-flat.min.css" rel="stylesheet">
-        <link href="styles/fluxapp.css" rel="stylesheet">
-      </head>
-      <body>
-        <div id="flux-app">${appHtml}</div>
-        <script src="/js/bundle.vendor.js"></script>
-        <script src="/js/bundle.app.js"></script>
-      </body>
-    </html>
-  `;
-  return pageHtml;
+function renderPage(appHtml, options) {
+  const html = compiledTemplate(options);
+  const re = /If you see this then something is wrong./gi;
+  return html.replace(re, appHtml);
 }
 
 // Start

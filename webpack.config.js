@@ -1,4 +1,5 @@
 const path = require('path');
+const config = require('./src/js/config');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
@@ -20,8 +21,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'REACT WEBPACK PROJECT TEMPLATE',
-      template: './index.ejs',
+      title: config.title,
+      template: config.template,
       filename: 'index.html',
       inject: 'body'
     }),
