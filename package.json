@@ -62,7 +62,6 @@
     }
   },
   "scripts": {
-    "prestart": "npm run clean-and-copy",
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:dev": "webpack-dev-server --config webpack.config.js --inline --content-base public/ --history-api-fallback",
     "start:prod": "npm run build && node server.bundle.js",
